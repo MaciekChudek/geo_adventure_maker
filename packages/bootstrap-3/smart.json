@@ -1,0 +1,9 @@
+{
+  "name": "bootstrap-updated",
+  "description": "UX/UI framework from Twitter (updated). Currently 2.2.1",
+  "homepage": "https://github.com/Charuru/bootstrap-updated",
+  "author": "Charles Ru <charuru2009@gmail.com>",
+  "version": "1.0.1",
+  "git": "https://github.com/Charuru/bootstrap-updated.git",
+  "packages": {}
+}

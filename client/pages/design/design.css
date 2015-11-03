@@ -1,0 +1,38 @@
+.edit_link{
+	background-image:url('edit.png');
+	min-width: 64px;
+	min-height: 64px;
+	background-repeat:no-repeat;
+	background-position:center;
+	display:block;
+}
+
+.delete_link{
+	background-image:url('delete.png');
+	min-width: 64px;
+	min-height: 64px;
+	background-repeat:no-repeat;
+	background-position:center;
+	display:block;
+}
+
+
+.new_adventure_button{
+	display: block;
+	background: #A33;
+	color: white;
+	text-decoration: none;
+	height: 3em;
+	width: 9em;
+	border-radius:1em;
+	font-size: 120%;
+	text-align: center;
+	padding: 5px;
+	margin: 10px;
+}
+
+.new_adventure_button:hover{
+	text-decoration: none;
+	color: #ccc;
+	cursor: pointer;
+}

@@ -1,0 +1,15 @@
+
+
+<template name="play">
+	<p> Here's a list of adventures that other people have published...</p>
+	<p> Soon I'll put up links for automatically downloading these.</p>
+	
+	<table class='adventures_table'>
+	<thead><tr><th>Location</th><th>Author</th><th>Title</th><th>Version</th><th>Download</th></tr></thead>
+	<tbody>
+	{{#each adventures}}
+	<tr><td>{{location}}</td><td>{{author}}</td><td>{{title}}</td><td>{{version}}</td><td><a href={{pathFor 'download' meta_id=this._id}} class='download_link'></a></td></tr>
+	{{/each}}
+	</tbody>
+	</table>
+</template>  

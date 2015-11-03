@@ -1,0 +1,22 @@
+
+<head>
+  <title>GeoAdventure editor</title>
+</head>
+
+<body>
+	
+</body>
+
+<template name="layout_alt">
+  {{> menu_bar}}
+
+  {{> yield}}
+</template>  
+
+
+<template name="layout">
+  {{> menu_bar}}
+	<div id='single_page_main_div'  class='floating_region floating_row_mid_top floating_row_bot_bot floating_col_l_l floating_col_r_r'>	
+	  {{> yield}}
+	</div>
+</template>  

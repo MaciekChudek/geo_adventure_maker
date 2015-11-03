@@ -1,0 +1,142 @@
+
+<template name="adventure_maker">
+  {{> meta_information}}
+
+  {{> map}}
+
+  {{> node_information}}
+</template>  
+
+
+<template name="adventure_maker_menu">
+	<div id = 'adventure_maker_menu_div'>
+		<table id='menu_table'><tr>
+		  <td id='search_input_td'><input id="seach_input" value='Geo search...'/></td>
+		  <td id='search_button_td'><input type="button" id="search_button" value="Search" /></td>
+		  <td id='export_td'><div id='export_div'><input type="button" id="export_button" value="Export" /></div></td>
+		  <td id='help_question_mark_td'><a href='#' id='help_question_mark'></a></td>	  
+		</tr></table>
+  </div>
+</template>
+
+<template name="meta_information">
+	<div id='meta_info_div' class='floating_region floating_row_mid_top floating_row_mid_bot floating_col_l_l floating_col_l_r'>
+	{{#each meta_nodes}}
+		<table id='meta_info_table'>
+			<tr><th>Title:</th> <td><input id="meta_title_input" type="text" value={{title}}></td> </tr>
+			<tr><th>By:</th> <td><input id="meta_author_input" type="text" value={{author}}></td> </tr>
+			<tr><th>Version:</th> <td><input id="meta_version_input" type="text" value={{version}}> </td></tr>
+			<tr><th>Location:</th> <td><input id="meta_location_input" type="text" value={{location}}> </td></tr>
+			<tr><th>Publish?</th> <td> <input type="checkbox" id='publish_checkbox' {{isChecked}} > </td></tr>
+		</table>
+	{{/each}}
+	{{> node_tree}}
+	</div>
+</template>
+
+<template name="node_tree">
+	<div id='node_tree_div'>
+		<p id='node_tree_p'>Node tree</p>
+	<table id='node_tree_table'>
+	{{#each adventure_nodes}}
+	{{> node_link node_id}}
+	<tr>
+	<div class='node_title_text_div'>{{title}}</div>
+	<div class='node_links_div' id="links_div_{{node_id}}">
+		<ul>
+			<li class='required_any_links_li'>
+				{{#each required_any}}{{> node_link}}{{/each}}				
+			</li>
+			<li class='required_all_links_li'>
+				{{#each required_all}}{{> node_link}}{{/each}}				
+			</li>
+			<li class='prohibited_any_links_li'>
+				{{#each prohibited_any}}{{> node_link}}{{/each}}	
+			</li>
+			<li class='prohibited_all_links_li'>
+				{{#each prohibited_all}}{{> node_link}}{{/each}}	
+			</li>
+			
+		</ul>
+	</div>
+	</tr>
+	{{/each}}
+	</table>
+	</div>
+</template>
+
+<template name="map">
+	<div id='map_div' class='floating_region floating_row_mid_top floating_row_mid_bot floating_col_r_l floating_col_r_r'>
+		<div id="map"></div>
+	</div>
+</template>
+
+<template name="node_information">
+  <div id='node_div' class='floating_region floating_row_bot_top floating_row_bot_bot floating_col_l_l floating_col_r_r'>
+  {{#each adventure_nodes}}
+	<!-- <input type="button" class="PressMe" value="Press Me" /> -->
+	<table id='node_table_outer'>
+		<tr id='node_table_top_row'>
+			<td id='node_table_link_cell'>{{> node_link node_id}}</td> 
+			<td colspan=2 id='node_table_location_cell'>{{location}}</td>
+			<td id='node_table_triggered_cell' ><label>Triggered: <input type="checkbox" id='triggered_data_checkbox' {{isChecked}} ></label></td>
+			<td id='node_table_title_cell'><input id='title_data_input' type="text" value={{title}}></td>			
+		</tr>
+		<tr id='node_table_mid_row'>
+			<td></td>
+			<td>Image: <input id='image_data_input' type="text" value={{image}}></td>
+			<td>Proximity (m): <input id='proximity_data_input' type="text" value={{proximity}}></td>
+			<td id = 'message_data_cell' colspan=3 rowspan=4><textarea id='message_data_textarea'> {{message}}</textarea></td>
+		</tr>
+		<tr  id='node_table_mid_row2'>
+			<td></td>
+			<td>Required: </td>
+			<td>Prohibited:</td>
+		</tr>
+		<tr  class='node_table_bot_row'>
+			<td rowspan=2 id = 'trash_nodes_td'><div id='trash_nodes_box'>  </div></td>
+			<td class='link_container_td'>
+				<div class='link_container any_container' id='required_any_data_box'>
+				<div class="background_text"><div>Any</div></div>
+				{{#each required_any}}
+					{{> node_link}}
+				{{/each}}
+				</div>
+			</td>
+			<td class='link_container_td'>
+				<div class='link_container any_container' id='prohibited_any_data_box'>
+				<div class="background_text"><div>ANY</div></div>
+				{{#each prohibited_any}}
+					{{> node_link}}
+				{{/each}}
+				</div>
+			</td>
+		</tr>
+		<tr  class='node_table_bot_row'>
+			<td class='link_container_td'>
+				<div class='link_container all_container' id='required_all_data_box'>
+				<div class="background_text"><div>All</div></div>
+				{{#each required_all}}
+					{{> node_link}}
+				{{/each}}
+				</div>
+			</td>
+			<td class='link_container_td'>
+				<div class='link_container all_container' id='prohibited_all_data_box'>
+				<div class="background_text"><div>ALL</div></div>
+				{{#each prohibited_all}}
+					{{> node_link}}
+				{{/each}}
+				</div>
+			</td>
+		</tr>	
+	</table>
+  {{/each}}
+  </div>
+</template>
+
+<template name="node_link">
+	<div class='node_link draggable'>{{this}}</div>
+</template>
+
+

@@ -1,0 +1,19 @@
+.adventures_table{
+	width: 100%;
+	background: #ccc;	
+}
+
+
+.adventures_table td{
+	text-align: center;
+	border: 1px solid; 
+}
+
+.download_link{
+	background-image:url('download.png');
+	min-width: 64px;
+	min-height: 64px;
+	background-repeat:no-repeat;
+	background-position:center;
+	display:block;
+}

@@ -1,0 +1,20 @@
+<template name="menu_bar">
+	<div id="top_menu_bar" class="floating_region floating_col_l_l floating_col_r_r floating_row_top_top floating_row_top_bot">
+		<table id='top_table'><tr>
+			<td>
+			<ul class="top_menu_links">
+			   <li><a id="menu_logo" title="GeoAdventure" href="{{pathFor 'home'}}"></a></li>
+			   <li><a href="{{pathFor 'about'}}"><span>About</span></a></li>
+			   <li><a href="{{pathFor 'play'}}"><span>Play</span></a></li>
+			   <li><a href="{{pathFor 'design'}}"><span>Design</span></a></li>		   
+			   <li  class='last'><a href="{{pathFor 'talk'}}"><span>Talk</span></a></li>
+			</ul>
+			</td>
+			{{#if adventure_maker_loaded}}  <td> {{> adventure_maker_menu}} </td> {{/if}}		
+		</tr></table>
+		<div id="top_menu_login">
+			{{> loginButtons align="right"}}
+		</div>
+	</div>
+</template>  
+

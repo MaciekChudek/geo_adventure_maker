@@ -1,0 +1,3 @@
+Template.play.created = function(){
+	
+}

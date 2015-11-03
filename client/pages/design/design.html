@@ -1,0 +1,29 @@
+
+
+<template name="design">
+	{{#if currentUser}}
+		{{> design_logged_in}}
+	{{else}}
+		{{> design_not_logged_in}}
+	{{/if}}	
+</template>  
+
+
+<template name="design_not_logged_in">
+		<p>You'll need to log in before you can create and edit GeoAdventures. </p>
+		
+		<p>Currently you can only log in using a google account because (a) setting up my own login system is arduous, (b) most people have google accounts and (c) it's an android app anyway. </p>	
+</template>  
+
+
+<template name="design_logged_in">
+	<a href={{pathFor 'adventure_maker' meta_id='new'}} class='new_adventure_button'>Create New Adventure</a>
+	<table class='adventures_table'>
+		<thead><tr><th>Location</th><th>Author</th><th>Title</th><th>Version</th><th>Published</th><th>Edit</th><th>Delete</th></tr></thead>
+		<tbody>
+		{{#each adventures}}
+		<tr><td>{{location}}</td><td>{{author}}</td><td>{{title}}</td><td>{{version}}</td><td>{{published}}</td><td><a href={{pathFor 'adventure_maker' meta_id=this._id}} class='edit_link'></a></td><td><a href="#" class='delete_link'></a></td></tr>
+		{{/each}}
+		</tbody>
+	</table>
+</template>  

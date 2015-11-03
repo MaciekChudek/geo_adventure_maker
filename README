@@ -1,0 +1,5 @@
+A web-based interface for making geoadventures (https://github.com/MaciekChudek/geo_adventure) by setting waypoints and logic on a google map.
+
+Currently not working due updates to google maps API. Will update next time I need to make a geoadventure.
+
+Language: Javascript, node.js, meteor framework.
